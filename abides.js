@@ -1,7 +1,7 @@
 import extractValidator from './lib/core/extract-validator'
 import translateValidation from './lib/core/translate-validation'
 
-export * from '@/validators/index'
+export * from './lib/validators/index'
 
 /**
  * Abides.

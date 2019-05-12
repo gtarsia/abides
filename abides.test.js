@@ -1,5 +1,5 @@
 import test from 'ava'
-import required from '@/validators/base/required'
+import required from './lib/validators/base/required'
 import { abides } from './abides'
 
 test('it should give errors for nested values', (t) => {

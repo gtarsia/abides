@@ -14,7 +14,6 @@ test('it should transform nested values', (t) => {
     },
   }
   const { result: actual } = abides(value, schema)
-  debugger
   const expected = {
     info: {
       year: 'null',

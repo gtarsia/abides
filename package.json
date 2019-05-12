@@ -26,17 +26,12 @@
   },
   "ava": {
     "require": [
-      "esm",
-      "module-alias/register"
+      "esm"
     ]
-  },
-  "_moduleAliases": {
-    "@": "./lib"
   },
   "dependencies": {
     "esm": "^3.2.22",
     "fromentries": "^1.1.0",
-    "lodash": "^4.17.11",
-    "module-alias": "^2.2.0"
+    "lodash": "^4.17.11"
   }
 }
