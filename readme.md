@@ -31,8 +31,8 @@ I like this API more.
   * Adding async support
   * Improvement of the 'write your custom validators' section
   * Making the errors more human-readable for things like web forms
-  * Browser support
   * Ability to validate arrays with the `each` property.
+  * Typescript implementation.
 
 ## Install
 
@@ -42,9 +42,7 @@ or npm
 
 ## Requirements
 
-* Node 8 at least
-
-I promise I'll target web at some point.
+* ES2017 (as in, node 8, a modern browser or a babel like library)
 
 ## Examples
 
@@ -83,6 +81,25 @@ const { errors, result } = abides(car, schema)
 }
 */
 ```
+
+## How to run the examples
+
+All the examples in this repo use ES modules.  
+node 12 has ES modules support out of the box.  
+If you want to try these examples *as is* with a previous version of node, pick one of these:
+
+The `--experimental-modules` flag way
+```
+node --experimental-modules
+```
+
+The `esm` package way (the recommended way for having ES modules in your own package)
+```
+npm install esm
+node -r esm
+```
+(Needless to say, remember to install abides too)
+
 
 ## Docs
 
