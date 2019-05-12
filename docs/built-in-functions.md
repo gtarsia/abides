@@ -33,6 +33,18 @@ abides([], [isPlainObject]) // => { ok: false, $: { error: 'is [] but should be 
 abides({}, [isPlainObject]) // => { ok: true, $: { error: null }, result: [] }
 ```
 
+#### ofType
+
+Errors if value is not of the specified type
+```javascript
+import { abides, ofType } from 'abides'
+
+abides([], ofType(String)) // => { ok: false, $: { error: 'is [] but should be of type String' }, result: [] }
+abides('', ofType(String)) // => { ok: true, $: { error: null }, result: [] }
+abides([], ofType(Object)) // => { ok: true, $: { error: null }, result: [] }
+// Yes! Arrays are objects in js, use isPlainObject for this case.
+```
+
 #### required
 
 Errors if value is `null` or `undefined`.
@@ -45,18 +57,6 @@ abides(null, [required])
 
 
 ## String
-
-#### stringNotEmpty
-
-Errors if and only if the value is an empty string (allows every other value).
-```javascript
-import { abides, stringNotEmpty } from 'abides'
-
-abides('', [stringNotEmpty])
-// => { ok: false, $: { error: 'is should be non-empty string' }, result: '' }
-abides(null, [stringNotEmpty])
-// => { ok: true, $: { error: null }, result: null }
-```
 
 #### stringCoerce
 

@@ -1,6 +1,8 @@
 
 ## Writing custom validators
 
+*TODO: This section needs to better explain the standardized way of creating your custom validator*
+
 You can define and use your own custom functions.
 The return value should have two properties:
 
@@ -15,7 +17,7 @@ The return value should have two properties:
 ```javascript
 function email(value) {
   const re = //gigantic email regex here
-  const shouldBe = re.test(value) ? null : 'valid email'
+  const error = re.test(value) ? null : 'is interp(value) valid email'
   return {
     shouldBe,
     value,

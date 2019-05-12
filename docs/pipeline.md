@@ -25,8 +25,11 @@ abides(null, [defaultize('500'), ofType(String)])
 // => { ok: true, $: { error: null }, result: '500' }
 
 ```
-The way the pipeline works is that each 
+Technically speaking, every function **transforms**. There is no code specification for when
+a function either **validates** or **transforms**.
 
+The way the pipeline works is that each function validates (either returns an error or no error).  
+But also passes the result to the next function if any.
 
 Validators and transformers are not mutually exclusive.  
 For example, the built-in function `numberCoerce` tries to transform

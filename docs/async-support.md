@@ -1,7 +1,7 @@
 
 ## Async support
 
-THIS IS THE PROPOSED API, BUT IT'S NOT IMPLEMENTED YET.
+*TODO: This is the proposed API but it's not implemented yet*
 
 ### abidesAsync(value, schema)
 

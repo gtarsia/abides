@@ -1,7 +1,7 @@
 
 ## Validating nested values
 
-This is the juiciest part of the library: objects and their properties can be validated. Deep properties can so too.
+This is the juiciest part of the library: abides can validate objects and child properties too.
 
 Properties in a schema whose name start with `$` are interpreted as objects to validate.
 So if there's a `color` property in the value, the `$color` property in the schema is a schema in itself of that property.
@@ -47,6 +47,18 @@ abides(dog, schema)
 */
 ```
 
-As you can see the `$` is also included in the return value.
-The value this is validating is the **root** value, as in, the entire `dog` object.
+### The $ property
+
+As you can see the `$` is also included in the return value.  
+The value this is validating is the **root** value, as in, the entire `dog` object.  
 This way we can have validations for everything in a meaningful way.
+
+### Transformed nested values
+
+As a side note, when a nested property value happens to get **transformed** on validation,  
+said transformed value will conveniently show up in the `result` property (as shown with `inYears` in the example).
+
+### The ok value with nested objects
+
+When any of the nested validations has an error, as in a non-empty string as error, the `ok` property is false.  
+True otherwise.

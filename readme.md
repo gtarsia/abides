@@ -6,7 +6,7 @@
 
 ## abides
 
-Modern javascript object validator for NodeJs.  
+Modern javascript object validation.  
 Validate, default and transform data.
 
 ## Why using it
@@ -14,7 +14,6 @@ Validate, default and transform data.
   * Powerful, intuitive and flexible API
   * Increased control of defaults and validations
   * The error messages are nice as hell.
-  * Only lodash as current real dep.
   * Custom validators 
   * I like it
 
@@ -32,7 +31,7 @@ I like this API more.
   * Adding async support
   * Improvement of the 'write your custom validators' section
   * Making the errors more human-readable for things like web forms
-  * Easier way of installing (since I'm only targetting `node` and using `esm`)
+  * Browser support
   * Ability to validate arrays with the `each` property.
 
 ## Install
@@ -53,11 +52,11 @@ I promise I'll target web at some point.
 import { abides, ofType, numberCoerce } from 'abides'
 
 abides(5, ofType(Number))
-// => { ok: true, error: '', result: 5 }
+// => { ok: true, $: { error: '' }, result: 5 }
 abides('5', ofType(Number))
-// => { ok: false, error: 'is \'5\' but should be of type Number', result: '5' }
+// => { ok: false, $: { error: 'is \'5\' but should be of type Number' }, result: '5' }
 abides('5', [numberCoerce, ofType(Number)])
-// => { ok: true, error: null, result: 5 }
+// => { ok: true, $: { error: null }, result: 5 }
 ```
 
 ### Nested values
@@ -75,12 +74,12 @@ const schema = {
 }
 const { errors, result } = abides(car, schema)
 /* => {
-  ok: true,
-  result: { model: 'SuperCharger', km: 500, price: null }
+  ok: false,
+  result: { model: 'SuperCharger', km: 500, price: undefined },
   $: { error: null },
   $model: { error: null },
   $km: { error: null },
-  $price: { error: 'is undefined but should not be null or undefined' },
+  $price: { error: 'is undefined but should not be null or undefined' }
 }
 */
 ```
@@ -98,5 +97,5 @@ const { errors, result } = abides(car, schema)
 
 ## Contributing
 
-Feel free to, I would put a smile on my face.
-It'd be best to discuss changes on issues first, but it's not a hard rule.
+Feel free to, it would put a smile on my face.
+In general, if a proposed change is relatively big, it'd be best to discuss it first in an issue.
