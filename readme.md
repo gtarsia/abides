@@ -1,9 +1,8 @@
 ![the dude](media/the_dude.jpeg)
 
-0.1.0 release
-85% codecov
-
-I'll add some badges here shortly.
+[![Build Status](https://travis-ci.org/zzyyxxww/abides.svg?branch=master)](https://travis-ci.org/zzyyxxww/abides)
+[![codecov](https://codecov.io/gh/zzyyxxww/abides/branch/master/graph/badge.svg)](https://codecov.io/gh/zzyyxxww/abides)
+[![Maintainability](https://api.codeclimate.com/v1/badges/9b3fc076bcfd79e4d780/maintainability)](https://codeclimate.com/github/zzyyxxww/abides/maintainability)
 
 ## abides
 
