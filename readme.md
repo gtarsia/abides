@@ -29,6 +29,7 @@ I like this API more.
 ## Planned changes
 
   * Adding async support
+  * Adding `errors` return prop that contains all errors.
   * Improvement of the 'write your custom validators' section
   * Making the errors more human-readable for things like web forms
   * Ability to validate arrays with the `each` property.
