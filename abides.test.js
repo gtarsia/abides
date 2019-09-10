@@ -30,6 +30,9 @@ test('it should give errors for nested values', (t) => {
         },
       },
     },
+    errors: [
+      '.info.year is null but should not be null or undefined',
+    ],
   }
   t.deepEqual(actual, expected)
 })
