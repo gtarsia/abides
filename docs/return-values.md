@@ -33,14 +33,8 @@ Returns the `value` with whatever transforms were applied to it.
 
 ### $
 
-* Type: `{ error: String }`
+* Type: `{ error: String, ... }`
 * Details:
 
 The validation for the **root** value.
-
-### [$<property>]
-
-* Type: `{ error: String }`
-* Details:
-
-The validation for a nested validations. Can also contain other nested validations.
+I can also contain other likewise validations if there were nested validations.

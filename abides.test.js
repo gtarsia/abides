@@ -20,12 +20,14 @@ test('it should give errors for nested values', (t) => {
   const expected = {
     ok: false,
     result: value,
-    $: { error: null },
-    $color: { error: null },
-    $info: {
+    $: {
       error: null,
-      $year: {
-        error: 'is null but should not be null or undefined',
+      $color: { error: null },
+      $info: {
+        error: null,
+        $year: {
+          error: 'is null but should not be null or undefined',
+        },
       },
     },
   }

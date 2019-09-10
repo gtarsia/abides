@@ -36,12 +36,14 @@ abides(dog, schema)
       inYears: 5
     },
   },
-  $: { error: null },
-  $color: { error: null },
-  $owner: { error: 'is undefined but should not be empty' },
-  $age: { 
+  $: {
     error: null,
-    $inYears: null,
+    $color: { error: null },
+    $owner: { error: 'is undefined but should not be empty' },
+    $age: { 
+      error: null,
+      $inYears: null,
+    },
   },
 }
 */
