@@ -8,10 +8,10 @@ These are all equivalent:
 abides(1, required) // shorthand single element
 abides(1, [required]) // shorthand array
 abides(1, { // explicit single element
-  pipeline: required
+  $: required
 })
 abides(1, { // explicit array
-  pipeline: [required]
+  $: [required]
 })
 ```
 
@@ -24,7 +24,7 @@ const car = {
 abides(car, { $color: [required] })
 abides(car, {
   $color: {
-    pipeline: [required]
+    $: [required]
   }
 })
 ```

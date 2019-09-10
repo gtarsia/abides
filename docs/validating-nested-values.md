@@ -19,7 +19,7 @@ const dog = {
   },
 }
 const schema = {
-  pipeline: ofType(Object),
+  $: ofType(Object),
   $color: [defaultize('white'), ofType(String)],
   $owner: [notEmpty, ofType(String)],
   $age: {
