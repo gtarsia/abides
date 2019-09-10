@@ -13,7 +13,6 @@
   "author": "gtarsia <guidotarsia@gmail.com>",
   "license": "MIT",
   "devDependencies": {
-    "ava": "^1.4.1",
     "codecov": "^3.4.0",
     "eslint": "^5.16.0",
     "eslint-config-airbnb-base": "^13.1.0",
@@ -30,6 +29,7 @@
     ]
   },
   "dependencies": {
+    "ava": "^2.3.0",
     "esm": "^3.2.22",
     "fromentries": "^1.1.0",
     "lodash": "^4.17.11"
