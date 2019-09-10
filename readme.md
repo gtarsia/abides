@@ -107,6 +107,7 @@ node -r esm
   * [Understanding the pipeline](./docs/pipeline.md)  
   * [Validating nested values](./docs/validating-nested-values.md)  
   * [Shorthand vs Explicit](./docs/shorthand-vs-explicit.md)  
+  * [Throw on errors](./docs/throw-on-errors.md)  
   * [Async support](./docs/async-support.md)  
 
 ## API

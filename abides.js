@@ -15,12 +15,17 @@ export * from './lib/validators/index'
  *
  * @param {any} value - The value to check for compliance.
  * @param {any} schema - The schema that the value should comply.
+ * @param {any} opts - Opts that are used to throw.
  * @returns {Object} - An object in the form of { ok: true|false, errors: [] }.
  */
-export function abides(value, schema) {
+export function abides(value, schema, opts = {}) {
   const validator = extractValidator(schema)
   const validation = validator.validate(value)
-  return translateValidation(validation)
+  const translation = translateValidation(validation)
+  if (opts.throw === true && translation.errors.length > 0) {
+    throw new Error(translation.errors.join('\n'))
+  }
+  return translation
 }
 
 // export function abidesAsync(value, schema) {

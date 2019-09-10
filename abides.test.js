@@ -1,5 +1,6 @@
 import test from 'ava'
 import required from './lib/validators/base/required'
+import ofType from './lib/validators/base/of-type'
 import { abides } from './abides'
 
 test('it should give errors for nested values', (t) => {
@@ -35,4 +36,11 @@ test('it should give errors for nested values', (t) => {
     ],
   }
   t.deepEqual(actual, expected)
+})
+
+test('it should throw if opts.throw === true', (t) => {
+  const value = 'John'
+  const schema = ofType(Number)
+  const opts = { throw: true }
+  t.throws(() => abides(value, schema, opts), 'is \'John\' but should be of type Number')
 })
