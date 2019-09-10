@@ -1,3 +1,4 @@
+
 module.exports = {
   root: true,
   env: {
@@ -52,7 +53,7 @@ module.exports = {
     'import/resolver': {
       alias: {
         map: [
-          ['@', './lib']
+          ['@', './']
         ],
       }
     }
