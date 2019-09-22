@@ -17,34 +17,6 @@ Validate, default and transform data.
   * Custom validators 
   * I like it
 
-## There are other validators, why this?
-
-I like this API more.
-
-## When to use it
-
-  * Validating usage of your library by other developers
-  * Validating data before it enters a database (or any data store)
-
-## Planned changes
-
-  * Adding async support
-  * Adding `errors` return prop that contains all errors.
-  * Improvement of the 'write your custom validators' section
-  * Making the errors more human-readable for things like web forms
-  * Ability to validate arrays with the `each` property.
-  * Typescript implementation.
-
-## Install
-
-`yarn add abides`  
-or npm  
-`npm i --save abides`  
-
-## Requirements
-
-* ES2017 (as in, node 8, a modern browser or a babel like library)
-
 ## Examples
 
 ```javascript
@@ -82,6 +54,34 @@ const { errors, result } = abides(car, schema)
 }
 */
 ```
+
+## There are other validators, why this?
+
+I like this API more.
+
+## When to use it
+
+  * Validating usage of your library by other developers
+  * Validating data before it enters a database (or any data store)
+
+## Planned changes
+
+  * Adding async support
+  * Adding `errors` return prop that contains all errors.
+  * Improvement of the 'write your custom validators' section
+  * Making the errors more human-readable for things like web forms
+  * Ability to validate arrays with the `each` property.
+  * Typescript implementation.
+
+## Install
+
+`yarn add abides`  
+or npm  
+`npm i --save abides`  
+
+## Requirements
+
+* ES2017 (as in, node 8, a modern browser or a babel like library)
 
 ## How to run the examples
 
