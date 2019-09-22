@@ -25,7 +25,7 @@ function email(value) {
 }
 
 abides('bad-email', [email])
-// => { ok: false, $: { error: 'should be a valid email' }, result: 'bad-email' }
+// => { ok: false, self: { error: 'should be a valid email' }, result: 'bad-email' }
 ```
 
 ### Example (transformer)
@@ -37,5 +37,5 @@ function stringCoerce(value) {
 }
 
 abides(15, [stringCoerce])
-// => { ok: true, $: { error: null }, result: '15' }
+// => { ok: true, self: { error: null }, result: '15' }
 ```

@@ -30,7 +30,7 @@ export function abides(value, schema, opts = {}) {
 
 // export function abidesAsync(value, schema) {
 //   const children = extractChildren(schema)
-//   const pipeline = extractPipeline(schema)
-//   const instance = new Validator({ children, pipeline })
+//   const self = extractSelf(schema)
+//   const instance = new Validator({ children, self })
 //   return instance.validateAsync(value)
 // }

@@ -3,7 +3,7 @@
 
 This is the juiciest part of the library: abides can validate objects and child properties too.
 
-Properties in a schema whose name start with `$` are interpreted as objects to validate.
+Properties in a schema whose name start with `self` are interpreted as objects to validate.
 So if there's a `color` property in the value, the `$color` property in the schema is a schema in itself of that property.
 
 ```javascript
@@ -19,7 +19,7 @@ const dog = {
   },
 }
 const schema = {
-  $: ofType(Object),
+  self: ofType(Object),
   $color: [defaultize('white'), ofType(String)],
   $owner: [notEmpty, ofType(String)],
   $age: {
@@ -36,7 +36,7 @@ abides(dog, schema)
       inYears: 5
     },
   },
-  $: {
+  self: {
     error: null,
     $color: { error: null },
     $owner: { error: 'is undefined but should not be empty' },
@@ -49,9 +49,9 @@ abides(dog, schema)
 */
 ```
 
-### The $ property
+### The `self` property
 
-As you can see the `$` is also included in the return value.  
+As you can see the `self` is also included in the return value.  
 The value this is validating is the **root** value, as in, the entire `dog` object.  
 This way we can have validations for everything in a meaningful way.
 

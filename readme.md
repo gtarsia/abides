@@ -23,11 +23,11 @@ Validate, default and transform data.
 import { abides, ofType, numberCoerce } from 'abides'
 
 abides(5, ofType(Number))
-// => { ok: true, $: { error: '' }, result: 5 }
+// => { ok: true, self: { error: '' }, result: 5 }
 abides('5', ofType(Number))
-// => { ok: false, $: { error: 'is \'5\' but should be of type Number' }, result: '5' }
+// => { ok: false, self: { error: 'is \'5\' but should be of type Number' }, result: '5' }
 abides('5', [numberCoerce, ofType(Number)])
-// => { ok: true, $: { error: null }, result: 5 }
+// => { ok: true, self: { error: null }, result: 5 }
 ```
 
 ### Nested values
@@ -47,7 +47,7 @@ const { errors, result } = abides(car, schema)
 /* => {
   ok: false,
   result: { model: 'SuperCharger', km: 500, price: undefined },
-  $: { error: null },
+  self: { error: null },
   $model: { error: null },
   $km: { error: null },
   $price: { error: 'is undefined but should not be null or undefined' }

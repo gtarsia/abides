@@ -14,7 +14,7 @@ The value to validate.
 
 ## return properties
 
-Every `abides(value, schema)` call returns `{ ok: Boolean, result: any, $: { error: String } }`.
+Every `abides(value, schema)` call returns `{ ok: Boolean, result: any, self: { error: String } }`.
 It also includes other child properties if the schema has children.
 
 ### ok
@@ -31,10 +31,10 @@ It also includes other child properties if the schema has children.
 
 Returns the `value` with whatever transforms were applied to it.
 
-### $
+### self
 
 * Type: `{ error: String, ... }`
 * Details:
 
-The validation for the **root** value.
+The validation for the **self** value.
 I can also contain other likewise validations if there were nested validations.

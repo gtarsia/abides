@@ -25,5 +25,5 @@ async function isRegistered(value) {
 }
 
 await abidesAsync(user, [isRegistered])
-// => { ok: false: $: { error: 'user is ... but should be registered' } }
+// => { ok: false: self: { error: 'user is ... but should be registered' } }
 ```

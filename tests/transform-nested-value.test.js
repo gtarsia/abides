@@ -9,7 +9,7 @@ test('it should transform nested values', (t) => {
   }
   const schema = {
     $info: {
-      pipeline: required,
+      self: required,
       $year: stringCoerce,
     },
   }

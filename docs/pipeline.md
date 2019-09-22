@@ -13,7 +13,7 @@ It ensures that the value isn't `null` or `undefined`.
 import { abides, required } from 'abides'
 
 abides(null, [required])
-// => { ok: false, $: { error: 'is null but should be defined' }, result: null }
+// => { ok: false, self: { error: 'is null but should be defined' }, result: null }
 ```
 
 In this example, we use two built-in functions: `defaultize` (transformer) and `ofType` (validator).
@@ -22,7 +22,7 @@ In this example, we use two built-in functions: `defaultize` (transformer) and `
 import { abides, defaultize, ofType } from 'abides'
 
 abides(null, [defaultize('500'), ofType(String)])
-// => { ok: true, $: { error: null }, result: '500' }
+// => { ok: true, self: { error: null }, result: '500' }
 
 ```
 Technically speaking, every function **transforms**. There is no code specification for when

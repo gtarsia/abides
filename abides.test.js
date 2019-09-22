@@ -13,7 +13,7 @@ test('it should give errors for nested values', (t) => {
   const schema = {
     $color: required,
     $info: {
-      pipeline: required,
+      self: required,
       $year: required,
     },
   }
@@ -21,7 +21,7 @@ test('it should give errors for nested values', (t) => {
   const expected = {
     ok: false,
     result: value,
-    $: {
+    self: {
       error: null,
       $color: { error: null },
       $info: {
