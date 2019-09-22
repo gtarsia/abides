@@ -23,11 +23,16 @@ Validate, default and transform data.
 import { abides, ofType, numberCoerce } from 'abides'
 
 abides(5, ofType(Number))
-// => { ok: true, self: { error: '' }, result: 5 }
+// => { ok: true, errors: [], self: { error: '' }, result: 5 }
 abides('5', ofType(Number))
-// => { ok: false, self: { error: 'is \'5\' but should be of type Number' }, result: '5' }
+/* => {
+  ok: false,
+  self: { error: 'is '5' but should be of type Number' },
+  errors: ['is '5' but should be of type Number'],
+  result: '5'
+} */
 abides('5', [numberCoerce, ofType(Number)])
-// => { ok: true, self: { error: null }, result: 5 }
+// => { ok: true, errors: [], self: { error: null }, result: 5 }
 ```
 
 ### Nested values
@@ -54,12 +59,13 @@ const { errors, result } = abides(car, schema)
 }
 */
 ```
+## Criteria
 
-## There are other validators, why this?
+### There are other validators, why this?
 
 I like this API more.
 
-## When to use it
+### When to use it
 
   * Validating usage of your library by other developers
   * Validating data before it enters a database (or any data store)

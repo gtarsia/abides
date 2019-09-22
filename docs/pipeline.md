@@ -1,6 +1,7 @@
 
 ## Understanding the pipeline
 
+### What is it?
 We define the pipeline an array of **functions** that are called **sequentially** (as in, first one, then the second, and so on).
 
 Some of these functions **validate**, others **transform**.
@@ -31,7 +32,9 @@ a function either **validates** or **transforms**.
 The way the pipeline works is that each function validates (either returns an error or no error).  
 But also passes the result to the next function if any.
 
-Validators and transformers are not mutually exclusive.  
+### Validators or transformers
+
+Validators and transformers are not **mutually exclusive**.  
 For example, the built-in function `numberCoerce` tries to transform
 to number, but also errors if the value can't be transformed to number (validates).
 
