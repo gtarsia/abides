@@ -12,9 +12,19 @@
 
 The value to validate.
 
-## return properties
+## *returns*
 
-Every `abides(value, schema)` call returns `{ ok: Boolean, result: any, self: { error: String } }`.
+* Type: `Validation`
+
+Every `abides(value, schema)` call returns a `Validation` object.
+```javascript
+{
+  ok: Boolean,
+  errors: Array,
+  result: any,
+  selfError: String
+}
+```
 It also includes other child properties if the schema has children.
 
 ### ok
@@ -31,10 +41,23 @@ It also includes other child properties if the schema has children.
 
 Returns the `value` with whatever transforms were applied to it.
 
-### self
+### errors
 
-* Type: `{ error: String, ... }`
+* Type: `Array`
 * Details:
 
-The validation for the **self** value.
-I can also contain other likewise validations if there were nested validations.
+Contains all the errors of the validation.
+
+### selfError
+
+* Type: `String`
+* Details:
+
+The validation for the *self* value.
+
+### $<child-property>
+
+* Type: `Validation`
+* Details:
+
+These are the validations for the children in schema.

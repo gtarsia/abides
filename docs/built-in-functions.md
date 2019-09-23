@@ -10,7 +10,7 @@ Transforms the value to a specified one, if the original value is `null` or `und
 import { abides, defaultize } from 'abides'
 
 abides(null, [defaultize(500)])
-// => { ok: true, error: null, result: 500 }
+// => { ok: true, errors: [], result: 500, ... }
 ```
 #### notEmpty
 
@@ -19,8 +19,8 @@ Based on lodash `isEmpty`
 ```javascript
 import { abides, notEmpty } from 'abides'
 
-abides([], notEmpty) // => { ok: false, self: { error: 'is [] but should not be empty' }, result: [] }
-abides([1], notEmpty) // => { ok: true, self: { error: null }, result: [] }
+abides([], notEmpty) // => { ok: false, errors: ['is [] but should not be empty'], result: [], ... }
+abides([1], notEmpty) // => { ok: true, errors: [], result: [], ... }
 ```
 
 #### isPlainObject
@@ -29,8 +29,8 @@ Errors if value is not a plain object.
 ```javascript
 import { abides, isPlainObject } from 'abides'
 
-abides([], [isPlainObject]) // => { ok: false, self: { error: 'is [] but should be a plain object' }, result: [] }
-abides({}, [isPlainObject]) // => { ok: true, self: { error: null }, result: [] }
+abides([], [isPlainObject]) // => { ok: false, errors: ['is [] but should be a plain object'], result: [], ... }
+abides({}, [isPlainObject]) // => { ok: true, errors: [], result: [], ... }
 ```
 
 #### ofType
@@ -39,9 +39,9 @@ Errors if value is not of the specified type
 ```javascript
 import { abides, ofType } from 'abides'
 
-abides([], ofType(String)) // => { ok: false, self: { error: 'is [] but should be of type String' }, result: [] }
-abides('', ofType(String)) // => { ok: true, self: { error: null }, result: [] }
-abides([], ofType(Object)) // => { ok: true, self: { error: null }, result: [] }
+abides([], ofType(String)) // => { ok: false, errors: ['is [] but should be of type String'], result: [], ... }
+abides('', ofType(String)) // => { ok: true, errors: [], result: [], ... }
+abides([], ofType(Object)) // => { ok: true, errors: [], result: [], ... }
 // Yes! Arrays are objects in js, use isPlainObject for this case.
 ```
 
@@ -65,7 +65,7 @@ Coerces value to string (calls `toString` if method exists, interpolates otherwi
 import { abides, stringCoerce } from 'abides'
 
 abides(5, [stringCoerce])
-// => { ok: true, self: { error: null }, result: '5' }
+// => { ok: true, errors: [], result: '5', ... }
 ```
 
 ## Number
@@ -80,5 +80,5 @@ Errors if result is `NaN`, otherwise returns `Number(value)`.
 import { abides, numberCoerce } from 'abides'
 
 abides('15', [numberCoerce])
-// => { ok: true, self: { error: null }, result: 15 }
+// => { ok: true, errors: [], result: 15, ... }
 ```

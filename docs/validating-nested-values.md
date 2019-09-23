@@ -29,6 +29,7 @@ const schema = {
 abides(dog, schema)
 /* => {
   ok: true,
+  errors: ['.owner is undefined but should not be empty']
   result: {
     color: 'white'
     owner: '',

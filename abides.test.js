@@ -21,7 +21,7 @@ test('it should give errors for nested values', (t) => {
   const expected = {
     ok: false,
     result: value,
-    self: {
+    validation: {
       error: null,
       $color: { error: null },
       $info: {
