@@ -2,7 +2,6 @@ import test from 'ava'
 import {
   abides, numberCoerce, ofType,
 } from '../../abides'
-import { ok, notOk } from '../../lib/validators/validator-return'
 import expectedResult from './expected-result'
 import expectedValidation from './expected-validation'
 
@@ -23,10 +22,10 @@ test('it should validate multiple each in a nested way', (t) => {
   }
   const self = function atLeastOneParentWithAKidNamedTimmy(result) {
     if (result.some(({ kids }) => kids.some(({ name }) => name === 'Timmy'))) {
-      return ok({ result })
+      return { result }
     }
     const error = 'there should be at least one parent with a kid named Timmy'
-    return notOk({ error, result })
+    return { error, result }
   }
   const schema = {
     self,

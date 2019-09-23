@@ -19,8 +19,8 @@ function email(value) {
   const re = //gigantic email regex here
   const error = re.test(value) ? null : 'is interp(value) valid email'
   return {
-    shouldBe,
-    value,
+    error,
+    result: value,
   }
 }
 
