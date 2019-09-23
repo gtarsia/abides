@@ -24,6 +24,9 @@
     "nyc": "^14.1.1"
   },
   "ava": {
+    "files": [
+      "**/*.test.js"
+    ],
     "require": [
       "esm"
     ]
