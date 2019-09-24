@@ -1,6 +1,6 @@
 {
   "name": "abides",
-  "version": "0.6.0",
+  "version": "0.6.1",
   "description": "elegant javascript object validation",
   "main": "index.js",
   "scripts": {
@@ -10,12 +10,15 @@
     "test:watch": "ava --watch"
   },
   "repository": {
-		"type": "git",
+    "type": "git",
     "url": "git@github.com:gtarsia/abides.git"
   },
   "author": "gtarsia <guidotarsia@gmail.com>",
   "license": "MIT",
-  "keywords": ["validation", "object"],
+  "keywords": [
+    "validation",
+    "object"
+  ],
   "devDependencies": {
     "codecov": "^3.4.0",
     "eslint": "^5.16.0",
