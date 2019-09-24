@@ -17,7 +17,7 @@ Validate, default and transform data.
   * Custom validators 
   * I like it
 
-## Examples
+## Example
 
 ```javascript
 import { abides, ofType, numberCoerce } from 'abides'
@@ -35,49 +35,11 @@ abides('5', [numberCoerce, ofType(Number)])
 // => { ok: true, errors: [], self: { error: null }, result: 5 }
 ```
 
-### Nested values
-```javascript
-import { abides, defaultize, required, ofType } from 'abides'
+## More examples
 
-const car = {
-  model: 'SuperCharger',
-  km: null,
-}
-const schema = {
-  $model: [required, ofType(String)],
-  $km: [defaultize(500), ofType(Number)],
-  $price: required,
-}
-const { errors, result } = abides(car, schema)
-/* => {
-  ok: false,
-  result: { model: 'SuperCharger', km: 500, price: undefined },
-  self: { error: null },
-  $model: { error: null },
-  $km: { error: null },
-  $price: { error: 'is undefined but should not be null or undefined' }
-}
-*/
-```
-## Criteria
-
-### There are other validators, why this?
-
-I like this API more.
-
-### When to use it
-
-  * Validating usage of your library by other developers
-  * Validating data before it enters a database (or any data store)
-
-## Planned changes
-
-  * Adding async support
-  * Adding `errors` return prop that contains all errors.
-  * Improvement of the 'write your custom validators' section
-  * Making the errors more human-readable for things like web forms
-  * Ability to validate arrays with the `each` property.
-  * Typescript implementation.
+  * [Nested values](./docs/examples/nested-values.md)  
+  * [Shorthand vs explicit](./docs/examples/shorthand-vs-explicit.md)  
+  * [Array validation](./docs/examples/array-validation.md)  
 
 ## Install
 
@@ -85,42 +47,24 @@ I like this API more.
 or npm  
 `npm i --save abides`  
 
+## Planned changes
+
+  * Adding async support
+  * Making the errors more human-readable for things like web forms
+  * Typescript implementation
+
 ## Requirements
 
 * ES2017 (as in, node 8, a modern browser or a babel like library)
 
-## How to run the examples
+## Other docs
 
-All the examples in this repo use ES modules.  
-node 12 has ES modules support out of the box.  
-If you want to try these examples *as is* with a previous version of node, pick one of these:
-
-The `--experimental-modules` flag way
-```
-node --experimental-modules
-```
-
-The `esm` package way (the recommended way for having ES modules in your own package)
-```
-npm install esm
-node -r esm
-```
-(Needless to say, remember to install abides too)
-
-
-## Docs
-
+  * [API](./docs/api.md)  
   * [Understanding the pipeline](./docs/pipeline.md)  
-  * [Validating nested values](./docs/validating-nested-values.md)  
-  * [Shorthand vs Explicit](./docs/shorthand-vs-explicit.md)  
   * [Throw on errors](./docs/throw-on-errors.md)  
   * [Async support](./docs/async-support.md)  
 
-## API
-  * [Built-in functions](./docs/built-in-functions.md)  
-  * [Return values](./docs/return-values.md)  
-
 ## Contributing
 
-Feel free to, it would put a smile on my face.
+Feel free to, it would put a smile on my face.  
 In general, if a proposed change is relatively big, it'd be best to discuss it first in an issue.

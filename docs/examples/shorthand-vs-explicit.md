@@ -1,6 +1,7 @@
 ## shorthand vs explicit
 
-There are some synonymic ways to define the pipeline of a schema
+There are some synonymic ways to define the pipeline of a schema.
+This is to save time when validating `self`.
 
 These are all equivalent:
 
@@ -21,7 +22,9 @@ These are equivalent too for validating children:
 const car = {
   color: 'white'
 }
-abides(car, { $color: [required] })
+abides(car, {
+  $color: [required]
+})
 abides(car, {
   $color: {
     self: [required]

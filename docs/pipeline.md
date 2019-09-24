@@ -2,7 +2,7 @@
 ## Understanding the pipeline
 
 ### What is it?
-We define the pipeline an array of **functions** that are called **sequentially** (as in, first one, then the second, and so on).
+We define the pipeline an array of **functions** that are called **sequentially** (as in, first the first, then the second, and so on).
 
 Some of these functions **validate**, others **transform**.
 
@@ -30,7 +30,22 @@ Technically speaking, every function **transforms**. There is no code specificat
 a function either **validates** or **transforms**.
 
 The way the pipeline works is that each function validates (either returns an error or no error).  
-But also passes the result to the next function if any.
+But also passes the result to the next function if no errors happened.
+
+
+### Pipelines that `break`
+
+Analog to what `break` does in a javascript loops, any validation in a pipeline is capable of stopping execution of further validators.
+
+For example, the `nullable` validator does exactly that:
+```javascript
+import { abides, nullable, typeOf } from 'abides'
+
+abides(null, [nullable, typeOf(String)])
+// => { ok: true, errors: [], result: null }
+abides(3, [nullable, typeOf(String)])
+// => { ok: false, errors: ['is 3 but should be of type String'], result: 3 }
+```
 
 ### Validators or transformers
 

@@ -8,20 +8,19 @@
 This method returns a promise, and does a `await Promise.resolve` on every return of every pipeline function.
 
 ```javascript
-import { abidesAsync, ok, notOk, interp } from 'abides'
+import { abidesAsync, interp } from 'abides'
 const user = {
   id: 5
 }
 
-// I create my own validator with the ok and notOk helpers.
 // interp pretty prints any value as a string
 async function isRegistered(value) {
   const isRegistered = await someAsyncOperation()
   if (isRegistered) {
-    return ok({ result: value })
+    return { result: value }
   }
   const error = `user is ${interp(value)} but should be registered`
-  return notOk({ result: value, error })
+  return { result: value, error }
 }
 
 await abidesAsync(user, [isRegistered])

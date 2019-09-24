@@ -1,7 +1,71 @@
+# API
+* [abides](#abidesfunctionvalue-schema)
+   * [arguments](#arguments)
+   * [<em>returns</em>](#returnsvalidation)
+* [Built-in validators](#built-in-validators)
+   * [Base](#base)
+      * [nullable](#nullable)
+      * [defaultize](#defaultize)
+      * [notEmpty](#notempty)
+      * [isPlainObject](#isplainobject)
+      * [ofType](#oftype)
+      * [required](#required)
+   * [String](#string)
+      * [stringCoerce](#stringcoerce)
+   * [Number](#number)
+      * [numberCoerce](#numbercoerce)
 
-# Built-in functions
+## abides:function(value, schema, opts)
 
-## Base
+The main function used to validate synchronously.
+
+### arguments
+
+#### value:any
+
+The value to validate.
+
+#### schema:Function|Array|Object
+
+The schema to validate the value with.
+
+#### opts:Object|null
+
+If property `throw` is set to true, errors throw.
+
+### *returns*:Validation
+
+Every `abides(value, schema)` call returns a `Validation` object.
+```javascript
+{
+  ok: Boolean,
+  errors: Array,
+  result: any,
+  selfError: String,
+  [$<child1>: Validation],
+  [$<child2>: Validation],
+}
+```
+It can also include child validations if the schema has children. The keys of these children start with the `$` char.
+
+#### ok:Boolean
+`true` if there's no error in the root and nested validations.
+
+#### results:any
+Returns the `value` with whatever transforms were applied to it.
+
+#### errors:Array
+Contains all the errors of the validation.
+
+#### selfError:String|null
+The error (if any) for the *self* value.
+
+#### $\<child-property>:Validation
+These are the validations for the children in schema.
+
+## Built-in validators
+
+### Base
 
 #### nullable
 
@@ -67,8 +131,7 @@ abides(null, [required])
 // => { ok: true, self: { 'is null but should not be null or undefined' }, result: null }
 ```
 
-
-## String
+### String
 
 #### stringCoerce
 
@@ -80,7 +143,7 @@ abides(5, [stringCoerce])
 // => { ok: true, errors: [], result: '5', ... }
 ```
 
-## Number
+### Number
 
 #### numberCoerce
 
