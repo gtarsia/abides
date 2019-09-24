@@ -2,6 +2,7 @@ import extractValidator from './lib/core/extract-validator'
 import translateValidation from './lib/core/translate-validation'
 
 export * from './lib/validators/index'
+export { default as interp } from './lib/utils/interp'
 
 /**
  * Abides.
