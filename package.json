@@ -1,7 +1,7 @@
 {
   "name": "abides",
   "version": "0.6.0",
-  "description": "js object validation",
+  "description": "elegant javascript object validation",
   "main": "index.js",
   "scripts": {
     "fix": "eslint --fix lib '**/*.js'",
@@ -9,9 +9,13 @@
     "test": "nyc ava",
     "test:watch": "ava --watch"
   },
-  "repository": "git@github.com:gtarsia/abides.git",
+  "repository": {
+		"type": "git",
+    "url": "git@github.com:gtarsia/abides.git"
+  },
   "author": "gtarsia <guidotarsia@gmail.com>",
   "license": "MIT",
+  "keywords": ["validation", "object"],
   "devDependencies": {
     "codecov": "^3.4.0",
     "eslint": "^5.16.0",
