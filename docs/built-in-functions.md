@@ -3,6 +3,18 @@
 
 ## Base
 
+#### nullable
+
+Breaks pipeline if value is null or undefined.
+```javascript
+import { abides, nullable, ofType } from 'abides'
+
+abides(null, [nullable, ofType(String)])
+// => { ok: true, errors: [], result: null, ... }
+abides(3, [nullable, ofType(String)])
+// => { ok: false, errors: ['is 3 but should be of type String'], result: 3, ... }
+```
+
 #### defaultize
 
 Transforms the value to a specified one, if the original value is `null` or `undefined`.
