@@ -9,6 +9,8 @@
 Modern javascript object validation.  
 Validate, default and transform data.
 
+Not production ready yet, use at own risk.
+
 ## Why using it
 
   * Powerful, intuitive and flexible API
@@ -49,6 +51,7 @@ or npm
 
 ## Planned changes
 
+  * Validator caching
   * Adding async support
   * Making the errors more human-readable for things like web forms
   * Typescript implementation
