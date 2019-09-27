@@ -1,3 +1,4 @@
+import { isFunction } from 'lodash'
 import extractValidator from './lib/core/extract-validator'
 import translateValidation from './lib/core/translate-validation'
 
@@ -23,8 +24,17 @@ export function abides(value, schema, opts = {}) {
   const validator = extractValidator(schema)
   const validation = validator.validate(value)
   const translation = translateValidation(validation)
-  if (opts.throws === true && translation.errors.length > 0) {
-    throw new Error(translation.errors.join('\n'))
+  if (translation.errors.length > 0) {
+    const msg = translation.errors.join('\n')
+    if (opts.throws === true) {
+      throw new Error(msg)
+    } else if (opts.log === 'stdout') {
+      console.log(msg)
+    } else if (opts.log === 'stderr') {
+      console.error(msg)
+    } else if (isFunction(opts.log)) {
+      opts.log(msg)
+    }
   }
   return translation
 }
