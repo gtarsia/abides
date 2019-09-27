@@ -38,9 +38,21 @@ test('it should give errors for nested values', (t) => {
   t.deepEqual(actual, expected)
 })
 
-test('it should throw if opts.throw === true', (t) => {
+test('it should throw if opts.throws === true', (t) => {
   const value = 'John'
   const schema = ofType(Number)
   const opts = { throws: true }
-  t.throws(() => abides(value, schema, opts), 'is \'John\' but should be of type Number')
+  const error = "is 'John' but should be of type Number"
+  t.throws(() => abides(value, schema, opts), JSON.stringify({ error }, null, 2))
+})
+
+test('it should log if opts.log === fn', (t) => {
+  const value = 'John'
+  const schema = ofType(Number)
+  let msg = ''
+  const log = (_msg) => { msg = _msg }
+  const opts = { log }
+  abides(value, schema, opts)
+  const error = "is 'John' but should be of type Number"
+  t.is(msg, JSON.stringify({ error }, null, 2))
 })

@@ -22,10 +22,11 @@ export { default as interp } from './lib/utils/interp'
  */
 export function abides(value, schema, opts = {}) {
   const validator = extractValidator(schema)
-  const validation = validator.validate(value)
-  const translation = translateValidation(validation)
-  if (translation.errors.length > 0) {
-    const msg = translation.errors.join('\n')
+  const result = validator.validate(value)
+  const translation = translateValidation(result)
+  const { ok, validation } = translation
+  if (!ok) {
+    const msg = JSON.stringify(validation, null, 2)
     if (opts.throws === true) {
       throw new Error(msg)
     } else if (opts.log === 'stdout') {
