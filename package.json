@@ -9,6 +9,10 @@
     "test": "nyc ava",
     "test:watch": "ava --watch"
   },
+  "files": [
+    "lib",
+    "*.js"
+  ],
   "repository": {
     "type": "git",
     "url": "git@github.com:gtarsia/abides.git"
