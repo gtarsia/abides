@@ -41,6 +41,6 @@ test('it should give errors for nested values', (t) => {
 test('it should throw if opts.throw === true', (t) => {
   const value = 'John'
   const schema = ofType(Number)
-  const opts = { throw: true }
+  const opts = { throws: true }
   t.throws(() => abides(value, schema, opts), 'is \'John\' but should be of type Number')
 })

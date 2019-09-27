@@ -23,7 +23,7 @@ export function abides(value, schema, opts = {}) {
   const validator = extractValidator(schema)
   const validation = validator.validate(value)
   const translation = translateValidation(validation)
-  if (opts.throw === true && translation.errors.length > 0) {
+  if (opts.throws === true && translation.errors.length > 0) {
     throw new Error(translation.errors.join('\n'))
   }
   return translation
