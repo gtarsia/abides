@@ -1,6 +1,6 @@
 {
   "name": "abides",
-  "version": "0.6.1",
+  "version": "0.6.2",
   "description": "elegant javascript object validation",
   "main": "index.js",
   "scripts": {
