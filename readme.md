@@ -67,7 +67,7 @@ or npm
   * [Throw on errors](./docs/throw-on-errors.md)  
   * [Async support](./docs/async-support.md)  
 
-## Contributing
+## open to contributions
 
-Feel free to, it would put a smile on my face.  
-In general, if a proposed change is relatively big, it'd be best to discuss it first in an issue.
+help is needed in:
+* typescript definition and type check tests.
