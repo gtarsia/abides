@@ -6,20 +6,16 @@
 
 ## abides
 
-Modern javascript object validation.  
-Validate, default and transform data.
+modern javascript object validation.  
+validate, default and transform data.
 
-Not production ready yet, use at own risk.
+not production ready yet, use at own risk.
 
-## Why using it
+  * lightweight (~1kb min+gzipped bundled)
+  * only 3 deps (lodash, esm and fromentries polyfill)
+  * non-obscure control of validation
 
-  * Powerful, intuitive and flexible API
-  * Increased control of defaults and validations
-  * The error messages are nice as hell.
-  * Custom validators 
-  * I like it
-
-## Example
+## example
 
 ```javascript
 import { abides, ofType, numberCoerce } from 'abides'
@@ -37,30 +33,30 @@ abides('5', [numberCoerce, ofType(Number)])
 // => { ok: true, errors: [], self: { error: null }, result: 5 }
 ```
 
-## More examples
+## more examples
 
   * [Nested values](./docs/examples/nested-values.md)  
   * [Shorthand vs explicit](./docs/examples/shorthand-vs-explicit.md)  
   * [Array validation](./docs/examples/array-validation.md)  
 
-## Install
+## install
 
 `yarn add abides`  
 or npm  
 `npm i --save abides`  
 
-## Planned changes
+## planned changes
 
-  * Validator caching
-  * Adding async support
-  * Making the errors more human-readable for things like web forms
-  * Typescript implementation
+  * validator caching
+  * async support
+  * web forms ready errors
+  * typescript implementation
 
-## Requirements
+## requirements
 
 * ES2017 (as in, node 8, a modern browser or a babel like library)
 
-## Other docs
+## other docs
 
   * [API](./docs/api.md)  
   * [Understanding the pipeline](./docs/pipeline.md)  
