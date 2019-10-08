@@ -24,6 +24,7 @@
     "object"
   ],
   "devDependencies": {
+    "ava": "^2.4.0",
     "codecov": "^3.4.0",
     "eslint": "^5.16.0",
     "eslint-config-airbnb-base": "^13.1.0",
@@ -43,7 +44,6 @@
     ]
   },
   "dependencies": {
-    "ava": "^2.3.0",
     "esm": "^3.2.22",
     "fromentries": "^1.1.0",
     "lodash": "^4.17.11"
