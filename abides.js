@@ -62,9 +62,9 @@ export function abidesResult(value, schema, handler) {
     const err = `handler was ${handler} but should be either a nil, a function, 'stdout' or 'stderr'`
     throw new Error(err)
   }
-  const { result, ok, validation } = abides(value, schema)
+  const { result, ok, errors } = abides(value, schema)
   if (!ok) {
-    const msg = JSON.stringify(validation, null, 2)
+    const msg = errors.join('\n')
     return handler(msg)
   }
   return result

@@ -42,7 +42,7 @@ test('test abidesResult arguments', (t) => {
   const value = 'John'
   const schema = ofType(Number)
   const error = "is 'John' but should be of type Number"
-  t.throws(() => abidesResult(value, schema), JSON.stringify({ error }, null, 2))
+  t.throws(() => abidesResult(value, schema), error)
   t.throws(() => abidesResult(value, schema, 1),
     "handler was 1 but should be either a nil, a function, 'stdout' or 'stderr'")
 })
