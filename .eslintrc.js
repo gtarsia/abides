@@ -24,7 +24,7 @@ module.exports = {
     'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
     semi: [2, 'never'],
-    'no-param-reassign': ['error', { props: false }],
+    'no-param-reassign': ['off'],
     'import/prefer-default-export': 'off',
     "jsdoc/check-alignment": 1,
     "jsdoc/check-examples": 0,

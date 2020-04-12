@@ -1,7 +1,7 @@
 import test from 'ava'
 import required from './lib/validators/base/required'
 import ofType from './lib/validators/base/of-type'
-import { abides } from './abides'
+import { abides, abidesResult } from './abides'
 
 test('it should give errors for nested values', (t) => {
   const value = {
@@ -38,21 +38,22 @@ test('it should give errors for nested values', (t) => {
   t.deepEqual(actual, expected)
 })
 
-test('it should throw if opts.throws === true', (t) => {
+test('test abidesResult arguments', (t) => {
   const value = 'John'
   const schema = ofType(Number)
-  const opts = { throws: true }
   const error = "is 'John' but should be of type Number"
-  t.throws(() => abides(value, schema, opts), JSON.stringify({ error }, null, 2))
+  t.throws(() => abidesResult(value, schema), JSON.stringify({ error }, null, 2))
+  t.throws(() => abidesResult(value, schema, 1),
+    "handler was 1 but should be either a nil, a function, 'stdout' or 'stderr'")
 })
 
-test('it should log if opts.log === fn', (t) => {
-  const value = 'John'
-  const schema = ofType(Number)
-  let msg = ''
-  const log = (_msg) => { msg = _msg }
-  const opts = { log }
-  abides(value, schema, opts)
-  const error = "is 'John' but should be of type Number"
-  t.is(msg, JSON.stringify({ error }, null, 2))
-})
+// test('it should log if opts.log === fn', (t) => {
+//   const value = 'John'
+//   const schema = ofType(Number)
+//   let msg = ''
+//   const log = (_msg) => { msg = _msg }
+//   const opts = { log }
+//   abides(value, schema, opts)
+//   const error = "is 'John' but should be of type Number"
+//   t.is(msg, JSON.stringify({ error }, null, 2))
+// })
