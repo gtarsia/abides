@@ -47,6 +47,6 @@
   "dependencies": {
     "esm": "^3.2.22",
     "fromentries": "^1.1.0",
-    "lodash": "^4.17.11"
+    "lodash-es": "^4.17.15"
   }
 }

@@ -1,4 +1,4 @@
-import { isFunction, isNil } from 'lodash'
+import { isFunction, isNil } from 'lodash-es'
 import extractValidator from './lib/core/extract-validator'
 import translateValidation from './lib/core/translate-validation'
 
