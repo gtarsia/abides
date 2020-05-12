@@ -6,7 +6,7 @@
   "module": "abides.js",
   "scripts": {
     "fix": "eslint --fix lib '**/*.js'",
-    "esw": "esw --watch --color '**/*.js'",
+    "esw": "esw '**/*.js'",
     "test": "nyc ava",
     "test:watch": "ava --watch"
   },
@@ -33,7 +33,7 @@
     "eslint-plugin-ava": "^6.0.0",
     "eslint-plugin-import": "^2.16.0",
     "eslint-plugin-jsdoc": "^4.8.3",
-    "eslint-watch": "^5.0.1",
+    "eslint-watch-better": "^0.1.0",
     "nyc": "^14.1.1"
   },
   "ava": {
