@@ -11,4 +11,4 @@ export function abidesSoftly(obj, schemas) {
   return validate(obj, schemas)
 }
 
-export * from './functions'
+export * from './lib/functions'
