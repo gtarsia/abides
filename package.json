@@ -1,6 +1,6 @@
 {
   "name": "abides",
-  "version": "2.0.0-1",
+  "version": "2.0.0-2",
   "description": "elegant javascript object validation",
   "main": "esm.js",
   "module": "abides.js",
